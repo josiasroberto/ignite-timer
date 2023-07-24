@@ -1,17 +1,20 @@
 import { ThemeProvider } from 'styled-components'
-import { Button } from './components/Button'
+import { BrowserRouter } from 'react-router-dom'
 
 import { defaultTheme } from './styles/themes/default'
 import { GlobalStyle } from './styles/global'
 
+import { Router } from './components/Router'
+import { CyclesContextProvider } from './contexts/CyclesContext'
+
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Button variant="primary" />
-      <Button variant="secondary" />
-      <Button variant="danger" />
-      <Button variant="success" />
-      <Button />
+      <BrowserRouter>
+        <CyclesContextProvider>
+          <Router />
+        </CyclesContextProvider>
+      </BrowserRouter>
 
       <GlobalStyle />
     </ThemeProvider>
